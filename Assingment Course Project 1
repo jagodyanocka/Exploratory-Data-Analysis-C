@@ -1,0 +1,7 @@
+#loading data from wd txt format into R
+Electric_power_consumption <- read_delim('household_power_consumption.txt', delim = ";", col_names = TRUE, na = "?")
+#specyfing dates from data frame
+first_and_second_february <- filter(Electric_power_consumption, Date == c("1/2/2007", "2/2/2007"))
+png(filename = "plot1.png", width = 480, height = 480, units = "px")
+hist(first_and_second_february$Global_active_power, freq = TRUE, col = "Red", main = "Global reactive Power", xlab = "Global Active Power (kilowatts)")
+dev.off()
